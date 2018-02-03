@@ -46,11 +46,11 @@ namespace AOOADproject
             bool checkUser = false;
             string end = "";
 
-                        foreach (Employee employee in employeeList) //change to customer
+                        foreach (Customer customer in customerList) //change to customer
                         {
-                            if (employee.Id.ToUpper() == userId.ToUpper() )
+                            if (customer.Uid.ToUpper() == userId.ToUpper() )
                             {
-                                Console.Write("Welcome " + employee.Name + "\n");
+                                Console.Write("Welcome " + customer.Name + "\n");
                                 checkUser = true;
                                 end = "valid";
                                 break;
@@ -202,7 +202,7 @@ namespace AOOADproject
 
             JuniorAgent ja = new JuniorAgent("Marcus", "1001", "JuniorAgent");
             juniorAgentList.Add(ja);
-            
+            employeeList.Add(ja);
             Agent ag = new Agent("Derrick", "2001", "Agent");
             agentList.Add(ag);
             employeeList.Add(ag);
@@ -216,7 +216,11 @@ namespace AOOADproject
             travelInsuranceList.Add(ti);
             MedicalInsurance mi = new MedicalInsurance(0002, 50.00, 5000.00, new DateTime(2000,12,5), new DateTime(2060,6,6), "yearly", "lasped");
             medicalInsuranceList.Add(mi);
-            CarInsurance ci = new CarInsurance(0002, 50.00, 5000.00, new DateTime(1998, 3, 7), new DateTime(2020,3,11), "one time", "Terminated");
+            CarInsurance ci = new CarInsurance(0003, 50.00, 5000.00, new DateTime(1998, 3, 7), new DateTime(2020,3,11), "one time", "Terminated");
+            //Customer c = new Customer("5001", "May", "Yishun Ave 4");
+            //customerList.Add(c);
+            //Customer ca = new Customer("5002", "Keith", "Ang Mo Kio stree 11");
+            //customerList.Add(ca);
 
 
         }
@@ -248,6 +252,14 @@ namespace AOOADproject
                     agent = employeeList[i];
                     break;
                 }
+            }
+
+            Console.WriteLine("Enter customer id: ");
+            string UID = Console.ReadLine();
+            Customer customer;
+            for (int i=0; i<customerList.Count;i++)
+            {
+                //if (UID == customerList[i].)
             }
 
 

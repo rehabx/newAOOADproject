@@ -12,6 +12,13 @@ namespace AOOADproject
         private string name;
         private string address;
 
+        public Customer ( string a, string b, string c)
+        {
+            uid = a;
+            name = b;
+            address = c;
+        }
+
         public string Uid
         { get; set; }
 
