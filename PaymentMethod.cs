@@ -12,7 +12,7 @@ namespace AOOADproject
 
         public PaymentMethod()
         {
-            // do something
+            // do something v3
         }
 
         public int ChequeNo
