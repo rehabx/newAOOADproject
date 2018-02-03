@@ -15,6 +15,7 @@ namespace AOOADproject
         private DateTime policyEndDate;
         private string paymentType;
         private string status;
+        private Employee agent;
 
         public int PolicyNo
         { get; set; }
@@ -30,6 +31,10 @@ namespace AOOADproject
         { get; set; }
         public string Status
         { get; set; }
+        private Employee agent
+        { get; set; }
+
+        public createInsurancePolicy(){}
 
 
 
