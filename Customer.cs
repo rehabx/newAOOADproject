@@ -8,5 +8,9 @@ namespace AOOADproject
 {
     class Customer
     {
+        private string UID;
+        private string name;
+        private string address;
+
     }
 }
