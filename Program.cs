@@ -48,7 +48,7 @@ namespace AOOADproject
 
                         foreach (Customer customer in customerList) //change to customer
                         {
-                            if (customer.Uid.ToUpper() == userId.ToUpper() )
+                            if (customer.Uid == userId)
                             {
                                 Console.Write("Welcome " + customer.Name + "\n");
                                 checkUser = true;
@@ -100,7 +100,7 @@ namespace AOOADproject
                                           "please enter your option:");
                         mainselection = Console.ReadLine();
 
-                        switch(option)
+                        switch(mainselection)
                         {
                             case "1":
                                 CreatePolicy();
@@ -132,7 +132,7 @@ namespace AOOADproject
                         string choice = Console.ReadLine();
                         if ( choice == "1")
                         {
-
+                            CustomerViewInsurance(user);
                         }
                         else
                         {
@@ -217,10 +217,11 @@ namespace AOOADproject
             MedicalInsurance mi = new MedicalInsurance(0002, 50.00, 5000.00, new DateTime(2000,12,5), new DateTime(2060,6,6), "yearly", "lasped");
             medicalInsuranceList.Add(mi);
             CarInsurance ci = new CarInsurance(0003, 50.00, 5000.00, new DateTime(1998, 3, 7), new DateTime(2020,3,11), "one time", "Terminated");
-            //Customer c = new Customer("5001", "May", "Yishun Ave 4");
-            //customerList.Add(c);
-            //Customer ca = new Customer("5002", "Keith", "Ang Mo Kio stree 11");
-            //customerList.Add(ca);
+            carInsuranceList.Add(ci);
+            Customer c = new Customer("5001", "May", "Yishun Ave 4");
+            customerList.Add(c);
+            Customer ca = new Customer("5002", "Keith", "Ang Mo Kio stree 11");
+            customerList.Add(ca);
 
 
         }

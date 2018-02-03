@@ -11,14 +11,14 @@ namespace AOOADproject
         private string uid;
         private string name;
         private string address;
+        private InsurancePolicy insurancepolicies;
 
-        public Customer ( string a, string b, string c)
+        public Customer(string a, string b, string c)
         {
-            uid = a;
-            name = b;
-            address = c;
+            Uid = a;
+            Name = b;
+            Address = c;
         }
-
         public string Uid
         { get; set; }
 
@@ -30,10 +30,10 @@ namespace AOOADproject
 
         public void ViewPolicies(string uid)
         {
-            Console.WriteLine("");
+            Console.WriteLine(insurancepolicies.TermAndCondition + insurancepolicies.PolicyNo + insurancepolicies.Cost + insurancepolicies.PaymentType +
+                insurancepolicies.PolicyStartDate + insurancepolicies.PolicyEndDate + insurancepolicies.PaymentType + insurancepolicies.Status + "cheat");
         }
 
     }
-
-
 }
+

@@ -8,6 +8,7 @@ namespace AOOADproject
 {
     class InsurancePolicy
     {
+        private string termsAndCondition;
         private int policyNo;
         private double cost;
         private double payout;
@@ -16,8 +17,10 @@ namespace AOOADproject
         private string paymentType;
         private string status;
         private Employee staff;
-        private Customer customer;
+        private Customer customers;
 
+        public string TermAndCondition
+        { get; set; }
         public int PolicyNo
         { get; set; }
         public double Cost
