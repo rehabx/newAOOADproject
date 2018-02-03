@@ -16,6 +16,7 @@ namespace AOOADproject
         public static List<TravelInsurance> travelInsuranceList = new List<TravelInsurance>();
         public static List<MedicalInsurance> medicalInsuranceList = new List<MedicalInsurance>();
         public static List<CarInsurance> carInsuranceList = new List<CarInsurance>();
+        //public static List<Customer> customerList = new List<Customer>();
 
         public static string LogonEmployee(string userId)
         {
@@ -47,7 +48,7 @@ namespace AOOADproject
 
                         foreach (Employee employee in employeeList) //change to customer
                         {
-                            if (employee.Id.ToUpper() == userId.ToUpper())
+                            if (employee.Id.ToUpper() == userId.ToUpper() )
                             {
                                 Console.Write("Welcome " + employee.Name);
                                 checkUser = true;
@@ -86,10 +87,30 @@ namespace AOOADproject
                 case "1":
                     Console.WriteLine("Please enter your ID:");
                     userId = Console.ReadLine();
+                    string mainselection;
 
                     user = LogonEmployee(userId);
                     if (user == "valid")
                     {
+                        Console.WriteLine("Main Menu" +
+                                          "1. Create new insurance policy\n" +
+                                          "2. Edit policy\n" +
+                                          "3. Send alerts for policies with premium due\n" +
+                                          "--------------------------------------------\n" +
+                                          "please enter your option:");
+                        mainselection = Console.ReadLine();
+
+                        switch(option)
+                        {
+                            case "1":
+                                break;
+                            case "2":
+                                break;
+                            case "3":
+                                break;
+                        }
+
+
 
                     }
                     
@@ -101,6 +122,23 @@ namespace AOOADproject
                     userId = Console.ReadLine();
 
                     user = LogonCustomer(userId);
+
+                    if (user == "valid")
+                    {
+                        Console.WriteLine("1. View and pay oustanding insurance premium\n" +
+                                          "--------------------------------------------\n" +
+                                          "Please enter your option:");
+                        string choice = Console.ReadLine();
+                        if ( choice == "1")
+                        {
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid selection. Please try again");
+                        }
+
+                    }
 
                     break;
                 default:
@@ -138,6 +176,24 @@ namespace AOOADproject
                 }
             }*/
         }
+
+        public static void CustomerViewInsurance (string userId)
+        {
+            foreach (Employee employee in employeeList) //change to customer
+            {
+                if (employee.Id == userId)
+                {
+
+                }
+            }
+        }
+
+
+
+
+
+
+
         public static void Initialisation()
         {
 
@@ -153,6 +209,12 @@ namespace AOOADproject
             Administrator ad = new Administrator("Joshua", "4001", "Adminsitrator");
             administratorList.Add(ad);
             employeeList.Add(ad);
+            TravelInsurance ti = new TravelInsurance(0001, 50.00, 1000.00, Convert.ToDateTime(01/08/1997), Convert.ToDateTime(01/08/2027), "monthly", "active");
+            travelInsuranceList.Add(ti);
+            MedicalInsurance mi = new MedicalInsurance(0002, 50.00, 5000.00, Convert.ToDateTime(05/12/2000), Convert.ToDateTime(06/06/2060), "yearly", "lasped");
+            medicalInsuranceList.Add(mi);
+            CarInsurance ci = new CarInsurance(0002, 50.00, 5000.00, Convert.ToDateTime(07 / 03 / 1998), Convert.ToDateTime(03 / 11 / 2020), "one time", "Terminated");
+
 
         }
 
