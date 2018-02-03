@@ -5,3 +5,7 @@ C:\Users\User\source\repos\AOOADproject\AOOADproject\bin\Debug\AOOADproject.exe
 C:\Users\User\source\repos\AOOADproject\AOOADproject\bin\Debug\AOOADproject.pdb
 C:\Users\User\source\repos\AOOADproject\AOOADproject\obj\Debug\AOOADproject.exe
 C:\Users\User\source\repos\AOOADproject\AOOADproject\obj\Debug\AOOADproject.pdb
+D:\junyi\Source\Repos\AOOADproject\obj\Debug\AOOADproject.csprojResolveAssemblyReference.cache
+D:\junyi\Source\Repos\AOOADproject\obj\Debug\AOOADproject.csproj.CoreCompileInputs.cache
+D:\junyi\Source\Repos\AOOADproject\obj\Debug\AOOADproject.exe
+D:\junyi\Source\Repos\AOOADproject\obj\Debug\AOOADproject.pdb

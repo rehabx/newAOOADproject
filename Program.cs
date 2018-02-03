@@ -79,7 +79,6 @@ namespace AOOADproject
             string option = Console.ReadLine();
 
             string userId;
-
             string user;
 
             switch (option)
@@ -103,6 +102,7 @@ namespace AOOADproject
                         switch(option)
                         {
                             case "1":
+                                createPolicy();
                                 break;
                             case "2":
                                 break;
@@ -218,5 +218,37 @@ namespace AOOADproject
 
         }
 
+        static void createPolicy()
+         {
+             Console.WriteLine("Enter terms and condition: ");
+             string terms = Console.ReadLine();
+             Console.WriteLine("Enter cost: ");
+             double cost = Console.ReadLine();
+             Console.WriteLine("Enter payout: ");
+             double payout = Console.ReadLine();
+             DateTime startdate = DateTime.Today;
+             Console.WriteLine("Enter End Date: ");
+             DateTime enddate = Console.ReadLine();
+             Console.WriteLine("Enter payment type: ");
+             string paymenttype = Console.ReadLine();
+             Console.WriteLine("Enter Status: ");
+             string status = Console.ReadLine();
+ 
+             // How to get the agent
+             Console.WriteLine("Enter employee id: ");
+             string id = Console.ReadLine();
+             Employee agent;
+             for (int i = 0; i < employeeList.Count; i++)
+             {
+                 if (id == employeeList[i].Id)
+                 {
+                     agent = employeeList[i];
+                     break;
+                 }
+             }
+ 
+ 
+         }
     }
+     
 }
