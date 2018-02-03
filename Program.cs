@@ -103,7 +103,7 @@ namespace AOOADproject
                         switch(option)
                         {
                             case "1":
-                                createPolicy();
+                                //createPolicy();
                                 break;
                             case "2":
                                 break;
@@ -221,7 +221,7 @@ namespace AOOADproject
 
         }
 
-        static void createPolicy()
+        /*static void createPolicy()
          {
              Console.WriteLine("Enter terms and condition: ");
              string terms = Console.ReadLine();
@@ -251,7 +251,7 @@ namespace AOOADproject
              }
  
  
-         }
+         }*/
     }
      
 }
