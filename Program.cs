@@ -23,6 +23,7 @@ namespace AOOADproject
 
             string userId;
             bool checkUser = false;
+            string end = "";
             while ((option != "1" || option != "2") && checkUser == false)
             {
                 Console.WriteLine("Welcome to Provident Insurance! \n" +
@@ -31,7 +32,7 @@ namespace AOOADproject
                                   "2. Log In to Staff\n" +
                                   "==================\n" +
                                   "Please enter your option:");
-              
+
                 switch (option)
                 {
                     case "1":
@@ -43,12 +44,14 @@ namespace AOOADproject
                             {
                                 Console.Write("Welcome " + employee.Name);
                                 checkUser = true;
-                                return "employee";
+                                end = "employee";
+                                break;
                             }
                         }
                         if (checkUser == false)
                         {
                             Console.WriteLine("User does not exist, please try again.");
+                            return "error";
                         }
                         break;
                     case "2":
@@ -61,33 +64,35 @@ namespace AOOADproject
                             {
                                 Console.Write("Welcome " + employee.Name);
                                 checkUser = true;
-                                return "customer";
+                                end = "customer";
+                                break;
                             }
                         }
                         if (checkUser == false)
                         {
                             Console.WriteLine("User does not exist, please try again.");
+                            return "error";
                         }
                         break;
                     default:
                         break;
                 }
-                if (option == "1" && checkUser == true)
-                { return "employee"; }
-
-                else if (option == "2" && checkUser == true )
-                { return "cusomter"; }
             }
-
-            
+            return end;
         }
 
         static void Main(string[] args)
         {
-            initialisation();
-            Logon();
+            Initialisation();
+            string logonUser = Logon();
+            int option;
+            if (logonUser == "Employee")
+            {
+
+                switch(option)
+            }
             
-            Console.WriteLine("Welcome to Provident Insurance! \n" +
+            /*Console.WriteLine("Welcome to Provident Insurance! \n" +
                               "===================\n" +
                               "1. Log In to Customer\n" +
                               "2. Log In to Staff\n" +
@@ -136,7 +141,7 @@ namespace AOOADproject
                     }
                     break;
                 default:
-                    break;
+                    break; 
             }
             
             
@@ -167,7 +172,7 @@ namespace AOOADproject
                 }
             }*/
         }
-        public static void initialisation()
+        public static void Initialisation()
         {
 
             JuniorAgent ja = new JuniorAgent("Marcus", "1001", "JuniorAgent");
