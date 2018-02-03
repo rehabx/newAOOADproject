@@ -16,6 +16,7 @@ namespace AOOADproject
         private string paymentType;
         private string status;
         private Employee staff;
+        private Customer customer;
 
         public int PolicyNo
         { get; set; }
