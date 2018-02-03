@@ -16,7 +16,7 @@ namespace AOOADproject
         public static List<TravelInsurance> travelInsuranceList = new List<TravelInsurance>();
         public static List<MedicalInsurance> medicalInsuranceList = new List<MedicalInsurance>();
         public static List<CarInsurance> carInsuranceList = new List<CarInsurance>();
-        //public static List<Customer> customerList = new List<Customer>();
+        public static List<Customer> customerList = new List<Customer>();
 
         public static string LogonEmployee(string userId)
         {
@@ -50,7 +50,7 @@ namespace AOOADproject
                         {
                             if (employee.Id.ToUpper() == userId.ToUpper() )
                             {
-                                Console.Write("Welcome " + employee.Name);
+                                Console.Write("Welcome " + employee.Name + "\n");
                                 checkUser = true;
                                 end = "valid";
                                 break;
@@ -72,8 +72,8 @@ namespace AOOADproject
 
             Console.WriteLine("Welcome to Provident Insurance! \n" +
                               "===================\n" +
-                              "1. Log In to Customer\n" +
-                              "2. Log In to Staff\n" +
+                              "1. Log In to Staff\n" +
+                              "2. Log In to Customer\n" +
                               "==================\n" +
                               "Please enter your option:");
             string option = Console.ReadLine();
@@ -87,12 +87,13 @@ namespace AOOADproject
                 case "1":
                     Console.WriteLine("Please enter your ID:");
                     userId = Console.ReadLine();
+                    Console.WriteLine("\n");
                     string mainselection;
 
                     user = LogonEmployee(userId);
                     if (user == "valid")
                     {
-                        Console.WriteLine("Main Menu" +
+                        Console.WriteLine("Main Menu\n" +
                                           "1. Create new insurance policy\n" +
                                           "2. Edit policy\n" +
                                           "3. Send alerts for policies with premium due\n" +
@@ -141,7 +142,7 @@ namespace AOOADproject
                     }
 
                     break;
-                default:
+                default: 
                     break; 
             }
 
@@ -179,13 +180,15 @@ namespace AOOADproject
 
         public static void CustomerViewInsurance (string userId)
         {
-            foreach (Employee employee in employeeList) //change to customer
+            foreach (Customer customer in customerList) //change to customer
             {
-                if (employee.Id == userId)
+                if (customer.Uid == userId)
                 {
-
+                    customer.ViewPolicies(userId);
                 }
             }
+
+            
         }
 
 
@@ -209,11 +212,11 @@ namespace AOOADproject
             Administrator ad = new Administrator("Joshua", "4001", "Adminsitrator");
             administratorList.Add(ad);
             employeeList.Add(ad);
-            TravelInsurance ti = new TravelInsurance(0001, 50.00, 1000.00, Convert.ToDateTime(01/08/1997), Convert.ToDateTime(01/08/2027), "monthly", "active");
+            TravelInsurance ti = new TravelInsurance(0001, 50.00, 1000.00, new DateTime(1997,1,8), new DateTime(2017,1,8), "monthly", "active");
             travelInsuranceList.Add(ti);
-            MedicalInsurance mi = new MedicalInsurance(0002, 50.00, 5000.00, Convert.ToDateTime(05/12/2000), Convert.ToDateTime(06/06/2060), "yearly", "lasped");
+            MedicalInsurance mi = new MedicalInsurance(0002, 50.00, 5000.00, new DateTime(2000,12,5), new DateTime(2060,6,6), "yearly", "lasped");
             medicalInsuranceList.Add(mi);
-            CarInsurance ci = new CarInsurance(0002, 50.00, 5000.00, Convert.ToDateTime(07 / 03 / 1998), Convert.ToDateTime(03 / 11 / 2020), "one time", "Terminated");
+            CarInsurance ci = new CarInsurance(0002, 50.00, 5000.00, new DateTime(1998, 3, 7), new DateTime(2020,3,11), "one time", "Terminated");
 
 
         }

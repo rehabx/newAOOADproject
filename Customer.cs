@@ -8,9 +8,25 @@ namespace AOOADproject
 {
     class Customer
     {
-        private string UID;
+        private string uid;
         private string name;
         private string address;
 
+        public string Uid
+        { get; set; }
+
+        public string Name
+        { get; set; }
+
+        public string Address
+        { get; set; }
+
+        public void ViewPolicies(string uid)
+        {
+            Console.WriteLine("");
+        }
+
     }
+
+
 }

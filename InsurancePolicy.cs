@@ -34,7 +34,7 @@ namespace AOOADproject
         private Employee Staff
         { get; set; }
 
-        public createInsurancePolicy(){}
+       // public createInsurancePolicy(){}
 
 
 
