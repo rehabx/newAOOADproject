@@ -1,0 +1,7 @@
+C:\Users\User\source\repos\AOOADproject\AOOADproject\obj\Debug\AOOADproject.csprojResolveAssemblyReference.cache
+C:\Users\User\source\repos\AOOADproject\AOOADproject\obj\Debug\AOOADproject.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\AOOADproject\AOOADproject\bin\Debug\AOOADproject.exe.config
+C:\Users\User\source\repos\AOOADproject\AOOADproject\bin\Debug\AOOADproject.exe
+C:\Users\User\source\repos\AOOADproject\AOOADproject\bin\Debug\AOOADproject.pdb
+C:\Users\User\source\repos\AOOADproject\AOOADproject\obj\Debug\AOOADproject.exe
+C:\Users\User\source\repos\AOOADproject\AOOADproject\obj\Debug\AOOADproject.pdb
