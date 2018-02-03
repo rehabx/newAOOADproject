@@ -17,132 +17,98 @@ namespace AOOADproject
         public static List<MedicalInsurance> medicalInsuranceList = new List<MedicalInsurance>();
         public static List<CarInsurance> carInsuranceList = new List<CarInsurance>();
 
-        public static string Logon()
+        public static string LogonEmployee(string userId)
         {
-            string option = Console.ReadLine();
-
-            string userId;
             bool checkUser = false;
             string end = "";
-            while ((option != "1" || option != "2") && checkUser == false)
+
+            foreach (Employee employee in employeeList)
             {
-                Console.WriteLine("Welcome to Provident Insurance! \n" +
-                                  "===================\n" +
-                                  "1. Log In to Customer\n" +
-                                  "2. Log In to Staff\n" +
-                                  "==================\n" +
-                                  "Please enter your option:");
-
-                switch (option)
+                if (employee.Id.ToUpper() == userId.ToUpper())
                 {
-                    case "1":
-                        Console.WriteLine("Please enter your ID:");
-                        userId = Console.ReadLine();
-                        foreach (Employee employee in employeeList)
-                        {
-                            if (employee.Id.ToUpper() == userId.ToUpper())
-                            {
-                                Console.Write("Welcome " + employee.Name);
-                                checkUser = true;
-                                end = "employee";
-                                break;
-                            }
-                        }
-                        if (checkUser == false)
-                        {
-                            Console.WriteLine("User does not exist, please try again.");
-                            return "error";
-                        }
-                        break;
-                    case "2":
-
-                        Console.WriteLine("Please enter your ID:");
-                        userId = Console.ReadLine();
-                        foreach (Employee employee in employeeList)
-                        {
-                            if (employee.Id.ToUpper() == userId.ToUpper())
-                            {
-                                Console.Write("Welcome " + employee.Name);
-                                checkUser = true;
-                                end = "customer";
-                                break;
-                            }
-                        }
-                        if (checkUser == false)
-                        {
-                            Console.WriteLine("User does not exist, please try again.");
-                            return "error";
-                        }
-                        break;
-                    default:
-                        break;
+                    Console.Write("Welcome " + employee.Name);
+                    checkUser = true;
+                    end = "valid";
+                    break;
                 }
             }
+            if (checkUser == false)
+            {
+                Console.WriteLine("User does not exist, please try again.");
+                end = "error";
+            }
+
             return end;
         }
+        public static string LogonCustomer(string userId)
+        {
+            bool checkUser = false;
+            string end = "";
+
+                        foreach (Employee employee in employeeList) //change to customer
+                        {
+                            if (employee.Id.ToUpper() == userId.ToUpper())
+                            {
+                                Console.Write("Welcome " + employee.Name);
+                                checkUser = true;
+                                end = "valid";
+                                break;
+                            }
+                        }
+                        if (checkUser == false)
+                        {
+                            Console.WriteLine("User does not exist, please try again.");
+                            end = "error";
+                        }
+            return end;
+        }
+
+
 
         static void Main(string[] args)
         {
             Initialisation();
-            string logonUser = Logon();
-            int option;
-            if (logonUser == "Employee")
-            {
 
-                switch(option)
-            }
-            
-            /*Console.WriteLine("Welcome to Provident Insurance! \n" +
+            Console.WriteLine("Welcome to Provident Insurance! \n" +
                               "===================\n" +
                               "1. Log In to Customer\n" +
                               "2. Log In to Staff\n" +
                               "==================\n" +
-                              "Please enter your option");
+                              "Please enter your option:");
             string option = Console.ReadLine();
 
             string userId;
-            bool checkUser = false;
+
+            string user;
 
             switch (option)
             {
                 case "1":
                     Console.WriteLine("Please enter your ID:");
                     userId = Console.ReadLine();
-                    foreach (Employee employee in employeeList)
+
+                    user = LogonEmployee(userId);
+                    if (user == "valid")
                     {
-                        if (employee.Id.ToUpper() == userId.ToUpper())
-                        {
-                            Console.Write("Welcome " + employee.Name);
-                            checkUser = true;
-                            break;
-                        }
+
                     }
-                    if (checkUser == false)
-                    {
-                        Console.WriteLine("User does not exist, please try again.");
-                    }
+                    
+
+
                     break;
                 case "2":
-
                     Console.WriteLine("Please enter your ID:");
                     userId = Console.ReadLine();
-                    foreach (Employee employee in employeeList)
-                    {
-                        if (employee.Id.ToUpper() == userId.ToUpper())
-                        {
-                            Console.Write("Welcome " + employee.Name);
-                            checkUser = true;
-                            break;
-                        }
-                    }
-                    if (checkUser == false)
-                    {
-                        Console.WriteLine("User does not exist, please try again.");
-                    }
+
+                    user = LogonCustomer(userId);
+
                     break;
                 default:
                     break; 
             }
+
+            
+            
             
             
             /*if (option == 1)
