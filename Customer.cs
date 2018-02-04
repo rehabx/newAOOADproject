@@ -11,7 +11,22 @@ namespace AOOADproject
         private string uid;
         private string name;
         private string address;
-        private InsurancePolicy insurancepolicies;
+        private InsurancePolicy insurancepolicies = new InsurancePolicy();
+
+        public InsurancePolicy Insurancepolicies
+        {
+            set
+            {
+                if (insurancepolicies != value )
+                {
+                    insurancepolicies = value;
+                    value.Customers = this;
+                }
+                    
+                        }
+        }
+
+
 
         public Customer(string a, string b, string c)
         {
@@ -30,8 +45,9 @@ namespace AOOADproject
 
         public void ViewPolicies(string uid)
         {
-            Console.WriteLine(insurancepolicies.TermAndCondition + insurancepolicies.PolicyNo + insurancepolicies.Cost + insurancepolicies.PaymentType +
-                insurancepolicies.PolicyStartDate + insurancepolicies.PolicyEndDate + insurancepolicies.PaymentType + insurancepolicies.Status + "cheat");
+        //    foreach (InsurancePolicy insurancepolicies)
+        //    Console.WriteLine(insurancepolicies.TermAndCondition + insurancepolicies.PolicyNo + insurancepolicies.Cost + insurancepolicies.PaymentType +
+        //        insurancepolicies.PolicyStartDate + insurancepolicies.PolicyEndDate + insurancepolicies.PaymentType + insurancepolicies.Status + "cheat");
         }
 
     }

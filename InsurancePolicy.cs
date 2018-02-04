@@ -19,6 +19,21 @@ namespace AOOADproject
         private Employee staff;
         private Customer customers;
 
+        public Customer Customers
+        {
+            get; set;
+
+            //set
+            //{
+            //    if(customers != value)
+            //    {
+            //        customers = value;
+            //        value.Insurancepolicies = this;
+            //    }
+            //}
+           
+        }
+
         public string TermAndCondition
         { get; set; }
         public int PolicyNo
@@ -35,8 +50,12 @@ namespace AOOADproject
         { get; set; }
         public string Status
         { get; set; }
-        private Employee Staff
+        public Employee Staff
         { get; set; }
+
+ 
+
+
 
        // public createInsurancePolicy(){}
 

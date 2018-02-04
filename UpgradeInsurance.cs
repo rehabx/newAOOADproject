@@ -8,8 +8,9 @@ namespace AOOADproject
 {
     class UpgradeInsurance : InsurancePolicy
     {
-        public UpgradeInsurance(int a, double b, double c, DateTime d, DateTime e, string f, string g)
+        public UpgradeInsurance(string tc, int a, double b, double c, DateTime d, DateTime e, string f, string g)
         {
+            TermAndCondition = tc;
             PolicyNo = a;
             Cost = b;
             Payout = c;

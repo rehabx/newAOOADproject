@@ -8,6 +8,8 @@ namespace AOOADproject
 {
     class Program
     {
+        public static CustomerCollection c;
+
         public static List<Employee> employeeList = new List<Employee>();
         public static List<JuniorAgent> juniorAgentList = new List<JuniorAgent>();
         public static List<Agent> agentList = new List<Agent>();
@@ -17,6 +19,7 @@ namespace AOOADproject
         public static List<MedicalInsurance> medicalInsuranceList = new List<MedicalInsurance>();
         public static List<CarInsurance> carInsuranceList = new List<CarInsurance>();
         public static List<Customer> customerList = new List<Customer>();
+        public static List<InsurancePolicy> insurancePoliciesList = new List<InsurancePolicy>();
 
         public static string LogonEmployee(string userId)
         {
@@ -121,7 +124,7 @@ namespace AOOADproject
                 case "2":
                     Console.WriteLine("Please enter your ID:");
                     userId = Console.ReadLine();
-
+                    
                     user = LogonCustomer(userId);
 
                     if (user == "valid")
@@ -129,11 +132,38 @@ namespace AOOADproject
                         Console.WriteLine("1. View and pay oustanding insurance premium\n" +
                                           "--------------------------------------------\n" +
                                           "Please enter your option:");
-                        string choice = Console.ReadLine();
+                        string choice = Console.ReadLine(); 
                         if ( choice == "1")
                         {
-                            CustomerViewInsurance(userId);
-                            Console.ReadLine();
+
+                            foreach (Customer customer in customerList)
+                            {
+                                if (customer.Uid == userId)
+                                {
+                                    foreach(InsurancePolicy insurancepolices in insurancePoliciesList )
+                                    {
+                                       
+                                        {
+                                            c.ViewPolices(userId);
+                                            //Console.WriteLine(insurancepolices.TermAndCondition + insurancepolices.PolicyNo + insurancepolices.Cost + insurancepolices.Payout +
+                                            //    insurancepolices.PolicyStartDate + insurancepolices.PolicyEndDate + insurancepolices.PaymentType + insurancepolices.Status + insurancepolices.Staff.Name + "\n");
+                                            Console.ReadLine();
+                                        }
+
+
+                                        Console.ReadLine();
+
+                                        
+                                    }
+                                    customer.ViewPolicies(userId);
+                                    Console.ReadLine();
+                                }
+                            }
+                            //foreach (InsurancePolicy insurancepolicy in insurancePoliciesList )
+                            //{
+                            //    if(
+                                  
+                            //}
                         }
                         else
                         {
@@ -213,12 +243,15 @@ namespace AOOADproject
             Administrator ad = new Administrator("Joshua", "4001", "Adminsitrator");
             administratorList.Add(ad);
             employeeList.Add(ad);
-            TravelInsurance ti = new TravelInsurance(0001, 50.00, 1000.00, new DateTime(1997,1,8), new DateTime(2017,1,8), "monthly", "active");
+            TravelInsurance ti = new TravelInsurance("Only for 1", 0001, 50.00, 1000.00, new DateTime(1997,1,8), new DateTime(2017,1,8), "monthly", "active");
             travelInsuranceList.Add(ti);
-            MedicalInsurance mi = new MedicalInsurance(0002, 50.00, 5000.00, new DateTime(2000,12,5), new DateTime(2060,6,6), "yearly", "lasped");
+            insurancePoliciesList.Add(ti);
+            MedicalInsurance mi = new MedicalInsurance("Only for 1",0002, 50.00, 5000.00, new DateTime(2000,12,5), new DateTime(2060,6,6), "yearly", "lasped");
             medicalInsuranceList.Add(mi);
-            CarInsurance ci = new CarInsurance(0003, 50.00, 5000.00, new DateTime(1998, 3, 7), new DateTime(2020,3,11), "one time", "Terminated");
+            insurancePoliciesList.Add(mi);
+            CarInsurance ci = new CarInsurance("terminate soon", 0003, 50.00, 5000.00, new DateTime(1998, 3, 7), new DateTime(2020,3,11), "one time", "Terminated");
             carInsuranceList.Add(ci);
+            insurancePoliciesList.Add(mi);
             Customer c = new Customer("5001", "May", "Yishun Ave 4");
             customerList.Add(c);
             Customer ca = new Customer("5002", "Keith", "Ang Mo Kio stree 11");
@@ -244,9 +277,10 @@ namespace AOOADproject
             string status = Console.ReadLine();
 
             // How to get the agent
+
             Console.WriteLine("Enter employee id: ");
             string id = Console.ReadLine();
-            Employee agent;
+            Employee agent = null;
             for (int i = 0; i < employeeList.Count; i++)
             {
                 if (id == employeeList[i].Id)
@@ -255,12 +289,12 @@ namespace AOOADproject
                     break;
                 }
             }
-            
+
             // getting customer
             Console.WriteLine("Enter customer id: ");
             string usrID = Console.ReadLine();
-            Customer cw;
-            for (int i=0; i<customerList.Count;i++)
+            Customer cw = null;
+            for (int i = 0; i < customerList.Count; i++)
             {
                 if (usrID == customerList[i].Uid)
                 {
@@ -269,6 +303,11 @@ namespace AOOADproject
                 }
             }
 
+            InsurancePolicy policy = new CarInsurance(terms, 2, cost, payout, startdate, enddate, paymenttype, status);
+            insurancePoliciesList.Add(policy);
+            policy.Staff = agent;
+            policy.Customers = cw;
+            
 
 
         }
