@@ -18,10 +18,36 @@ namespace AOOADproject
             PolicyEndDate = e;
             PaymentType = f;
             Status = g;
-            Ownedby = h;
-            IsDue = i;
 
 
+                AddRider MyCode = new AddRider();
+            }
+
+            class AddRider
+            {
+                public AddRider() { }
+
+                List<string> rider;
+                public void ListInit(){}
+
+
+                public void Rider()
+                {
+                    Console.WriteLine("Enter a rider to be added: ");
+                    string userinput = Console.ReadLine();
+                    if (rider.Count < 10)
+                    {
+                        if (userinput != "rider 1")
+                        {
+                            rider.Add(userinput);
+                            foreach (var item in rider)
+                            Console.Write(item.ToString() + " ");
+                        }
+                    }
+                }
+            }
         }
     }
 }
+
+
