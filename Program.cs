@@ -132,7 +132,8 @@ namespace AOOADproject
                         string choice = Console.ReadLine();
                         if ( choice == "1")
                         {
-                            CustomerViewInsurance(user);
+                            CustomerViewInsurance(userId);
+                            Console.ReadLine();
                         }
                         else
                         {
