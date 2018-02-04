@@ -57,6 +57,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeniorAgent.cs" />
     <Compile Include="TravelInsurance.cs" />
+    <Compile Include="UpgradeInsurance.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
