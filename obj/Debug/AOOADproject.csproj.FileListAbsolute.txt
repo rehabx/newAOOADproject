@@ -19,3 +19,9 @@ C:\Users\User\source\repos\NewAOOADproject\AOOADproject\obj\Debug\AOOADproject.c
 C:\Users\User\source\repos\NewAOOADproject\AOOADproject\obj\Debug\AOOADproject.csproj.CoreCompileInputs.cache
 C:\Users\User\source\repos\NewAOOADproject\AOOADproject\obj\Debug\AOOADproject.exe
 C:\Users\User\source\repos\NewAOOADproject\AOOADproject\obj\Debug\AOOADproject.pdb
+C:\Users\Lan_94\Source\Repos\AOOADprojectt\bin\Debug\AOOADproject.exe.config
+C:\Users\Lan_94\Source\Repos\AOOADprojectt\bin\Debug\AOOADproject.exe
+C:\Users\Lan_94\Source\Repos\AOOADprojectt\bin\Debug\AOOADproject.pdb
+C:\Users\Lan_94\Source\Repos\AOOADprojectt\obj\Debug\AOOADproject.csprojResolveAssemblyReference.cache
+C:\Users\Lan_94\Source\Repos\AOOADprojectt\obj\Debug\AOOADproject.exe
+C:\Users\Lan_94\Source\Repos\AOOADprojectt\obj\Debug\AOOADproject.pdb
