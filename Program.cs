@@ -254,14 +254,20 @@ namespace AOOADproject
                     break;
                 }
             }
-
+            
+            // getting customer
             Console.WriteLine("Enter customer id: ");
-            string UID = Console.ReadLine();
-            Customer customer;
+            string usrID = Console.ReadLine();
+            Customer cw;
             for (int i=0; i<customerList.Count;i++)
             {
-                //if (UID == customerList[i].)
+                if (usrID == customerList[i].Uid)
+                {
+                    cw = customerList[i];
+                    break;
+                }
             }
+
 
 
         }
