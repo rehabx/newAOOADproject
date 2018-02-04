@@ -16,9 +16,10 @@ namespace AOOADproject
         private DateTime policyEndDate;
         private string paymentType;
         private string status;
+        private string ownedBy;
+        private bool isDue;
         private Employee staff;
         private Customer customers;
-
         public Customer Customers
         {
             get; set;
@@ -49,6 +50,10 @@ namespace AOOADproject
         public string PaymentType
         { get; set; }
         public string Status
+        { get; set; }
+        public string Ownedby
+        { get; set; }
+        public bool IsDue
         { get; set; }
         public Employee Staff
         { get; set; }

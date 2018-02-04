@@ -8,9 +8,8 @@ namespace AOOADproject
 {
     class TravelInsurance : InsurancePolicy
     {
-        public TravelInsurance(string tc, int a, double b, double c, DateTime d, DateTime e, string f, string g)
-        {
-            TermAndCondition = tc;
+        public TravelInsurance(string tc, int a, double b, double c, DateTime d, DateTime e, string f, string g, string h, bool i)
+        { 
             PolicyNo = a;
             Cost = b;
             Payout = c;
@@ -18,7 +17,8 @@ namespace AOOADproject
             PolicyEndDate = e;
             PaymentType = f;
             Status = g;
-
+            Ownedby = h;
+            IsDue = i;
         }
     }
 }

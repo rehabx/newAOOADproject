@@ -15,14 +15,24 @@ namespace AOOADproject
             this.insurancePolicyList = insurancePolicyList;
         }
 
-        public void ViewPolices(string id)
+        public void ViewPolices(string name)
 
         {
-            foreach(InsurancePolicy ip in insurancePolicyList)
+            int i = 0;
+            foreach (InsurancePolicy ip in insurancePolicyList)
             {
-                Console.WriteLine(ip.TermAndCondition + ip.PolicyEndDate + ip.PolicyStartDate + "name");
+                if (ip.Ownedby.ToUpper() == name.ToUpper() && ip.IsDue == true )
+                {
+                    i++;
+
+                    Console.WriteLine(i + ". " + ip.TermAndCondition + " | " + ip.PolicyNo + " | " + ip.Cost + " | " + ip.Payout + " | " + ip.PolicyStartDate + " | " + ip.PolicyEndDate + " | "
+                       + ip.PaymentType + " | " + ip.Status + " | " + ip.Ownedby + " | " + ip.IsDue);
+                       
+
+                }
             }
         }
 
     }
 }
+
