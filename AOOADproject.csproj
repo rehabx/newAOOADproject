@@ -46,6 +46,7 @@
     <Compile Include="Agent.cs" />
     <Compile Include="CarInsurance.cs" />
     <Compile Include="Customer.cs" />
+    <Compile Include="CustomerCollection.cs" />
     <Compile Include="EditInsurance.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="PayInsurance.cs" />

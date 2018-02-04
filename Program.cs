@@ -8,6 +8,8 @@ namespace AOOADproject
 {
     class Program
     {
+        public static CustomerCollection c;
+
         public static List<Employee> employeeList = new List<Employee>();
         public static List<JuniorAgent> juniorAgentList = new List<JuniorAgent>();
         public static List<Agent> agentList = new List<Agent>();
@@ -140,16 +142,17 @@ namespace AOOADproject
                                 {
                                     foreach(InsurancePolicy insurancepolices in insurancePoliciesList )
                                     {
-                                        if ( insurancepolices.Customers.Uid == userId )
+                                       
                                         {
-                                            Console.WriteLine(insurancepolices.TermAndCondition + insurancepolices.PolicyNo + insurancepolices.Cost + insurancepolices.Payout +
-                                                insurancepolices.PolicyStartDate + insurancepolices.PolicyEndDate + insurancepolices.PaymentType + insurancepolices.Status + insurancepolices.Staff.Name + "\n");
-                                            Console.ReadLine();
-                                        } 
-                                        else
-                                        {
+                                            c.ViewPolices(userId);
+                                            //Console.WriteLine(insurancepolices.TermAndCondition + insurancepolices.PolicyNo + insurancepolices.Cost + insurancepolices.Payout +
+                                            //    insurancepolices.PolicyStartDate + insurancepolices.PolicyEndDate + insurancepolices.PaymentType + insurancepolices.Status + insurancepolices.Staff.Name + "\n");
                                             Console.ReadLine();
                                         }
+
+
+                                        Console.ReadLine();
+
                                         
                                     }
                                     customer.ViewPolicies(userId);
@@ -240,13 +243,13 @@ namespace AOOADproject
             Administrator ad = new Administrator("Joshua", "4001", "Adminsitrator");
             administratorList.Add(ad);
             employeeList.Add(ad);
-            TravelInsurance ti = new TravelInsurance(0001, 50.00, 1000.00, new DateTime(1997,1,8), new DateTime(2017,1,8), "monthly", "active");
+            TravelInsurance ti = new TravelInsurance("Only for 1", 0001, 50.00, 1000.00, new DateTime(1997,1,8), new DateTime(2017,1,8), "monthly", "active");
             travelInsuranceList.Add(ti);
             insurancePoliciesList.Add(ti);
-            MedicalInsurance mi = new MedicalInsurance(0002, 50.00, 5000.00, new DateTime(2000,12,5), new DateTime(2060,6,6), "yearly", "lasped");
+            MedicalInsurance mi = new MedicalInsurance("Only for 1",0002, 50.00, 5000.00, new DateTime(2000,12,5), new DateTime(2060,6,6), "yearly", "lasped");
             medicalInsuranceList.Add(mi);
             insurancePoliciesList.Add(mi);
-            CarInsurance ci = new CarInsurance(0003, 50.00, 5000.00, new DateTime(1998, 3, 7), new DateTime(2020,3,11), "one time", "Terminated");
+            CarInsurance ci = new CarInsurance("terminate soon", 0003, 50.00, 5000.00, new DateTime(1998, 3, 7), new DateTime(2020,3,11), "one time", "Terminated");
             carInsuranceList.Add(ci);
             insurancePoliciesList.Add(mi);
             Customer c = new Customer("5001", "May", "Yishun Ave 4");
@@ -300,7 +303,7 @@ namespace AOOADproject
                 }
             }
 
-            InsurancePolicy policy = new CarInsurance(2, cost, payout, startdate, enddate, paymenttype, status);
+            InsurancePolicy policy = new CarInsurance(terms, 2, cost, payout, startdate, enddate, paymenttype, status);
             insurancePoliciesList.Add(policy);
             policy.Staff = agent;
             policy.Customers = cw;

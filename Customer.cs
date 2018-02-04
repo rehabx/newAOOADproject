@@ -11,7 +11,7 @@ namespace AOOADproject
         private string uid;
         private string name;
         private string address;
-        private InsurancePolicy insurancepolicies;
+        private InsurancePolicy insurancepolicies = new InsurancePolicy();
 
         public InsurancePolicy Insurancepolicies
         {
