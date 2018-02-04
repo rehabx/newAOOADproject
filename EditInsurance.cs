@@ -8,7 +8,7 @@ namespace AOOADproject
 {
     class EditInsurance : InsurancePolicy
     {
-        public EditInsurance(int a, double b, double c, DateTime d, DateTime e, string f, string g)
+        public EditInsurance(string tc, int a, double b, double c, DateTime d, DateTime e, string f, string g, string h, bool i)
         {
             PolicyNo = a;
             Cost = b;
@@ -17,26 +17,8 @@ namespace AOOADproject
             PolicyEndDate = e;
             PaymentType = f;
             Status = g;
-        }
-        class Program
-        {
-            static void Main(string[] args)
-            {
-                for (int i = 1; i <= 1000; i = i + 1)
-                {
-                    Console.WriteLine(i);
-                }
-
-        
-        
-
-
-
-
-
-
-
-            }
+            Ownedby = h;
+            IsDue = i;
         }
     }
 }

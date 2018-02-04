@@ -18,31 +18,28 @@ namespace AOOADproject
             PolicyEndDate = e;
             PaymentType = f;
             Status = g;
+        }
+
+        class AddRider
+        {
+            AddRider MyCode = new AddRider();
+            public AddRider() { }
+
+            List<string> rider;
+            public void ListInit(){ }
 
 
-                AddRider MyCode = new AddRider();
-            }
-
-            class AddRider
+            public void riders()
             {
-                public AddRider() { }
-
-                List<string> rider;
-                public void ListInit(){}
-
-
-                public void Rider()
+                Console.WriteLine("Enter a rider to be added: ");
+                string userinput = Console.ReadLine();
+                if (rider.Count < 10)
                 {
-                    Console.WriteLine("Enter a rider to be added: ");
-                    string userinput = Console.ReadLine();
-                    if (rider.Count < 10)
+                    if (userinput != "rider 1")
                     {
-                        if (userinput != "rider 1")
-                        {
-                            rider.Add(userinput);
-                            foreach (var item in rider)
+                        rider.Add(userinput);
+                        foreach (var item in rider)
                             Console.Write(item.ToString() + " ");
-                        }
                     }
                 }
             }
