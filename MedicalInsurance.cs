@@ -8,7 +8,7 @@ namespace AOOADproject
 {
     class MedicalInsurance : InsurancePolicy
     {
-        public MedicalInsurance(string tc, int a, double b, double c, DateTime d, DateTime e, string f, string g)
+        public MedicalInsurance(string tc, int a, double b, double c, DateTime d, DateTime e, string f, string g, string h, bool i)
         {
             TermAndCondition = tc;
             PolicyNo = a;
@@ -18,7 +18,8 @@ namespace AOOADproject
             PolicyEndDate = e;
             PaymentType = f;
             Status = g;
-
+            Ownedby = h;
+            IsDue = i;
         }
     }
 }

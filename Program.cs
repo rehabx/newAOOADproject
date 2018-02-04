@@ -72,6 +72,8 @@ namespace AOOADproject
         static void Main(string[] args)
         {
             Initialisation();
+            c = new CustomerCollection(insurancePoliciesList);
+
 
             Console.WriteLine("Welcome to Provident Insurance! \n" +
                               "===================\n" +
@@ -144,7 +146,7 @@ namespace AOOADproject
                                     {
                                        
                                         {
-                                            c.ViewPolices(userId);
+                                            c.ViewPolices(customer.Name);
                                             //Console.WriteLine(insurancepolices.TermAndCondition + insurancepolices.PolicyNo + insurancepolices.Cost + insurancepolices.Payout +
                                             //    insurancepolices.PolicyStartDate + insurancepolices.PolicyEndDate + insurancepolices.PaymentType + insurancepolices.Status + insurancepolices.Staff.Name + "\n");
                                             Console.ReadLine();
@@ -155,7 +157,6 @@ namespace AOOADproject
 
                                         
                                     }
-                                    customer.ViewPolicies(userId);
                                     Console.ReadLine();
                                 }
                             }
@@ -170,6 +171,10 @@ namespace AOOADproject
                             Console.WriteLine("Invalid selection. Please try again");
                         }
 
+
+
+
+
                     }
 
                     break;
@@ -177,10 +182,10 @@ namespace AOOADproject
                     break; 
             }
 
-            
-            
-            
-            
+
+
+
+
             /*if (option == 1)
             {
                 Console.WriteLine("payment");
@@ -206,7 +211,46 @@ namespace AOOADproject
                         Console.WriteLine("You have exited this thing");
                     }
                 }
-            }*/
+            }
+
+
+            static void sendmail()
+                {
+                 InsurancePolicy thing = new InsurancePolicy();
+                             if(thing.Status == "due")
+                             {
+                                 Console.WriteLine("Do you want to print letter and send email?"+
+                                 "Enter your option[Y/N]: ");
+                                  string option = Console.ReadLine();
+
+                                 if(option == "Y")
+                                 {
+                                     Console.WriteLine("Letter printed and Email sent!");
+                                 }
+                                 else if(option == "N")
+                                 {
+                                 Console.WriteLine(Main);
+                                 }
+                                 else
+                                 {
+                                     Console.WriteLine("Bye!");
+                                 }   
+                             }
+                }
+
+  case "3":
+                     Console.WriteLine("Please enter your ID:");
+                    userId = Console.ReadLine();
+
+                    user = LogonCustomer(userId);
+
+                    if (user == "valid")
+                        {
+                           Console.WriteLine("send mail?");
+                         
+
+
+             */
         }
 
         public static void CustomerViewInsurance (string userId)
@@ -243,13 +287,13 @@ namespace AOOADproject
             Administrator ad = new Administrator("Joshua", "4001", "Adminsitrator");
             administratorList.Add(ad);
             employeeList.Add(ad);
-            TravelInsurance ti = new TravelInsurance("Only for 1", 0001, 50.00, 1000.00, new DateTime(1997,1,8), new DateTime(2017,1,8), "monthly", "active");
+            TravelInsurance ti = new TravelInsurance("Only for 1", 0001, 50.00, 1000.00, new DateTime(1997,1,8), new DateTime(2017,1,8), "monthly", "active", "May", true);
             travelInsuranceList.Add(ti);
             insurancePoliciesList.Add(ti);
-            MedicalInsurance mi = new MedicalInsurance("Only for 1",0002, 50.00, 5000.00, new DateTime(2000,12,5), new DateTime(2060,6,6), "yearly", "lasped");
+            MedicalInsurance mi = new MedicalInsurance("Only for 1",0002, 50.00, 5000.00, new DateTime(2000,12,5), new DateTime(2060,6,6), "yearly", "lasped", "May", false);
             medicalInsuranceList.Add(mi);
             insurancePoliciesList.Add(mi);
-            CarInsurance ci = new CarInsurance("terminate soon", 0003, 50.00, 5000.00, new DateTime(1998, 3, 7), new DateTime(2020,3,11), "one time", "Terminated");
+            CarInsurance ci = new CarInsurance("terminate soon", 0003, 50.00, 5000.00, new DateTime(1998, 3, 7), new DateTime(2020, 3, 11), "one time", "Terminated", "Keith", false);
             carInsuranceList.Add(ci);
             insurancePoliciesList.Add(mi);
             Customer c = new Customer("5001", "May", "Yishun Ave 4");
@@ -269,12 +313,14 @@ namespace AOOADproject
             Console.WriteLine("Enter payout: ");
             double payout = Convert.ToDouble(Console.ReadLine());
             DateTime startdate = DateTime.Today;
-            Console.WriteLine("Enter End Date: ");
+            Console.WriteLine("Enter End Date(yyyy-mm-dd): ");
             DateTime enddate = Convert.ToDateTime(Console.ReadLine());
             Console.WriteLine("Enter payment type: ");
             string paymenttype = Console.ReadLine();
             Console.WriteLine("Enter Status: ");
             string status = Console.ReadLine();
+            Console.WriteLine("Enter Policy owner's name:");
+            string name = Console.ReadLine();
 
             // How to get the agent
 
@@ -303,7 +349,7 @@ namespace AOOADproject
                 }
             }
 
-            InsurancePolicy policy = new CarInsurance(terms, 2, cost, payout, startdate, enddate, paymenttype, status);
+            InsurancePolicy policy = new CarInsurance(terms, 2, cost, payout, startdate, enddate, paymenttype, status, name, false);
             insurancePoliciesList.Add(policy);
             policy.Staff = agent;
             policy.Customers = cw;
